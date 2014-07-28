@@ -317,7 +317,7 @@ create_display(void)
 	display = malloc(sizeof *display);
 	if (display == NULL) {
 		fprintf(stderr, "out of memory\n");
-		exit(1);
+		pthread_exit(NULL);
 	}
 	display->display = wl_display_connect(NULL);
 	assert(display->display);
@@ -329,14 +329,14 @@ create_display(void)
 	wl_display_roundtrip(display->display);
 	if (display->shm == NULL) {
 		fprintf(stderr, "No wl_shm global\n");
-		exit(1);
+		pthread_exit(NULL);
 	}
 
 	wl_display_roundtrip(display->display);
 
 	if (!(display->formats & (1 << WL_SHM_FORMAT_XRGB8888))) {
 		fprintf(stderr, "WL_SHM_FORMAT_XRGB32 not available\n");
-		exit(1);
+		pthread_exit(NULL);
 	}
 
 	wl_display_get_fd(display->display);
