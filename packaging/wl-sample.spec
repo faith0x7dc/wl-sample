@@ -13,6 +13,7 @@ BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-egl)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(egl)
+BuildRequires:  pkgconfig(libpng)
 BuildRequires:  mesa-devel
 
 %if !%{with wayland}
@@ -40,6 +41,7 @@ install -m 755 square %{buildroot}%{_bindir}/wl-sample/
 install -m 755 double-square %{buildroot}%{_bindir}/wl-sample/
 install -m 755 square-shm %{buildroot}%{_bindir}/wl-sample/
 install -m 755 event-test %{buildroot}%{_bindir}/wl-sample/
+install -m 755 image-viewer-egl %{buildroot}%{_bindir}/wl-sample/
 
 %files
 %defattr(-,root,root)
@@ -48,4 +50,5 @@ install -m 755 event-test %{buildroot}%{_bindir}/wl-sample/
 %_bindir/wl-sample/double-square
 %_bindir/wl-sample/square-shm
 %_bindir/wl-sample/event-test
+%_bindir/wl-sample/image-viewer-egl
 

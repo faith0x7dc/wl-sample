@@ -3,7 +3,8 @@ bin_PROGRAMS = \
 	square \
 	double-square \
 	square-shm \
-	event-test
+	event-test \
+	image-viewer-egl
 
 solid_surf_egl_SOURCES = solid-surf-egl.c
 solid_surf_egl_CPPFLAGS = $(WAYLAND_CLIENT_CFLAGS) $(WAYLAND_CURSOR_CFLAGS) $(WAYLAND_EGL_CFLAGS) $(EGL_CFLAGS)
@@ -24,4 +25,8 @@ square_shm_LDADD = $(WAYLAND_CLIENT_LIBS)
 event_test_SOURCES = event-test.c event.c
 event_test_CPPFLAGS = $(WAYLAND_CLIENT_CFLAGS)
 event_test_LDADD = $(WAYLAND_CLIENT_LIBS) -lpthread
+
+image_viewer_egl_SOURCES = image-viewer-egl.c png-loader.c
+image_viewer_egl_CPPFLAGS = -g -Wall $(WAYLAND_CLIENT_CFLAGS) $(WAYLAND_CURSOR_CFLAGS) $(WAYLAND_EGL_CFLAGS) $(EGL_CFLAGS) $(LIBPNG_CFLAGS)
+image_viewer_egl_LDADD = $(WAYLAND_CLIENT_LIBS) $(WAYLAND_CURSOR_LIBS) $(WAYLAND_EGL_LIBS) $(EGL_LIBS) $(LIBPNG_LIBS) -lGLESv2
 

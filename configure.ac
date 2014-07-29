@@ -10,9 +10,10 @@ AC_PROG_CC
 
 # Checks for libraries.
 PKG_CHECK_MODULES([WAYLAND_CLIENT], [wayland-client])
-PKG_CHECK_MODULES(WAYLAND_CURSOR, wayland-cursor)
-PKG_CHECK_MODULES(WAYLAND_EGL, wayland-egl)
-PKG_CHECK_MODULES(EGL, [egl >= 7.10 glesv2])
+PKG_CHECK_MODULES([WAYLAND_CURSOR], [wayland-cursor])
+PKG_CHECK_MODULES([WAYLAND_EGL], [wayland-egl])
+PKG_CHECK_MODULES([EGL], [egl >= 7.10 glesv2])
+PKG_CHECK_MODULES([LIBPNG], [libpng])
 
 # Checks for header files.
 AC_CHECK_HEADERS([stdlib.h string.h])
